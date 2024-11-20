@@ -1,0 +1,231 @@
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    
+  
+    .header {
+      background-color: red;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      color: white;
+  
+      .actions {
+        display: flex;
+        align-items: center;
+  
+        mat-icon {
+          margin-right: 10px;
+        }
+  
+        .user-icon {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+        }
+      }
+    }
+  
+    .main-content {
+      display: flex;
+      flex: 1;
+      padding: 10px 25px;
+  
+      .categories {
+        width: 20%;
+        padding: 10px;
+      }
+  
+      .content {
+        flex: 1;
+        padding: 20px;
+
+  
+        .product-list {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+          gap: 20px;
+  
+          .product {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+            background: white;
+          }
+        }
+      }
+    }
+  }
+
+  .sort-panel {
+    padding: 20px;
+  }
+
+.sort-header {
+      display: flex;
+      justify-content: space-between;
+ }
+ 
+  .clrBtn{
+    background: lightgrey;
+    padding: 0px 11px;
+  }
+ 
+  .filter {
+    background: lightblue;
+    padding: 10px 11px;
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  .logoImg{
+    width: 20%;
+    margin-left: 20px;
+  }
+  .searchHead{
+    font-weight: 500;
+  }
+  .apply{
+    font-weight: 500;
+    margin-right: 5px;
+   
+  }
+  .foundResults{
+    font-weight: 500;
+    font-size: 18px;
+  }
+  .sortBtn{
+    float: inline-end;
+    top: -24px;
+    left: -65px;
+  }
+  .resetFilter{
+    float: inline-end;
+    color: rgb(255, 115, 0);
+  }
+  .sortHead{
+    margin: 10px;
+  }
+::ng-deep .mat-drawer-inner-container{
+    width: 300px !important;
+}
+.active{
+    background:red;
+    width: 60px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    color: white;
+}
+
+.default{
+    width: 60px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    background: lightgray;
+    margin: 5px;
+    color: black;
+}
+.closeBtn{
+    margin-left: 80px;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 10px;
+}
+.applyBtn{
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 10px;
+}
+.search-container {
+    position: relative;
+    display: inline-block;
+    width: 100%; 
+  }
+  
+  .search-container .search-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: gray;
+    font-size: 20px;
+    pointer-events: none;
+  }
+  
+  .search-container .searchInput {
+    width: 90%; 
+    padding: 10px 10px 10px 35px; 
+    font-size: 16px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    outline: none; 
+    margin-bottom: 11px;
+  }
+  
+  .search-container .searchInput:focus {
+    border-color: #6200ea; 
+    box-shadow: 0 0 5px rgba(98, 0, 234, 0.5); 
+  }
+  .footer {
+    background-color: #f8f8f8; /* Light background color */
+    padding: 20px 0;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    width: 80%; /* Adjust the width of the content */
+    align-items: center;
+  }
+  
+  .footer-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .footer-logo {
+    width: 40px; /* Adjust logo size */
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  .footer-center {
+    text-align: center;
+  }
+  
+  
+  .footer-right ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-right li {
+    margin: 5px 0;
+  }
+  
+  .footer-right a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .footer-right a:hover {
+    color: #007bff; /* Hover effect */
+  }
+  
+  .version, .about {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  

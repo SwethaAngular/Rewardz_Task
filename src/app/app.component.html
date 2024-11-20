@@ -1,0 +1,147 @@
+
+    <!-- <mat-drawer #sortPanel mode="over" position="end" class="sort-panel" opened="true">
+      <h3>Sort Products</h3>
+      <mat-radio-group [(ngModel)]="selectedSortOption">
+        <mat-radio-button value="asc">A-Z</mat-radio-button>
+        <mat-radio-button value="desc">Z-A</mat-radio-button>
+      </mat-radio-group>
+      <button mat-raised-button color="primary" (click)="applySort()">Apply</button>
+    </mat-drawer> -->
+
+<mat-drawer-container>
+    <mat-drawer #sortPanel mode="over" position="end" class="sort-panel">
+        <div class="sortHead">
+            <span>Filter By</span>
+            <span class="resetFilter">
+              Reset All
+            </span>
+        </div>
+        <hr />
+        <h3>Sort</h3>
+        <div class="apply">
+            <button 
+            [ngClass]="{'active': selectedSortOption === 'asc','default': selectedSortOption !== 'asc'}" 
+            (click)="setSortOption('asc')">
+            A-Z
+          </button>
+          <button  id="btnSort"
+            [ngClass]="{'active': selectedSortOption === 'desc','default': selectedSortOption !== 'desc'}" 
+            (click)="setSortOption('desc')">
+            Z-A
+          </button>
+          <!-- <mat-chip value="asc">A-Z</mat-chip>
+          <mat-chip value="desc">Z-A</mat-chip> -->
+        </div>
+        <button mat-raised-button class="applyBtn"color="primary" (click)="applySort()">Apply</button>
+        <button mat-raised-button class="closeBtn" color="accent" (click)="sortPanel.close()">close</button>
+      </mat-drawer>
+<div class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <img src="./../assets/image/logo1.png" alt="Company Logo" class="logoImg" />
+      </div>
+      <div class="actions">
+        <mat-icon>notifications</mat-icon>
+        <mat-icon>language</mat-icon>
+        <img src="./../assets/image/user.png" alt="User Profile" class="user-icon" />
+      </div>
+    </header>
+  
+    <div class="search-bar" style="padding: 10px 25px;">
+        <h3 class="searchHead">Search</h3>
+        <!-- <input type="text" class="searchInput" matInput placeholder="Search" (input)="onSearch($event)" /> -->
+        <div class="search-container">
+            <mat-icon class="search-icon">search</mat-icon>
+            <input
+              type="text"
+              class="searchInput"
+              matInput
+              placeholder="Search"
+              (input)="onSearch($event)"
+            />
+          </div>
+        <div class="filters">
+          <span class="apply">Applied Filters :</span>
+          <span 
+            *ngFor="let filter of appliedFilters"
+            class="filter"
+            (click)="removeFilter(filter)"
+          >
+            {{ filter }} 
+          </span>
+          <button class="clrBtn" mat-button (click)="clearFilters()">Clear Filters x</button>
+        </div>
+      </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <aside class="categories">
+        <h3>Categories</h3>
+        <mat-accordion>
+          <mat-expansion-panel *ngFor="let category of categories">
+            <mat-expansion-panel-header>
+              {{ category.name }}
+            </mat-expansion-panel-header>
+            <div *ngFor="let subCategory of category.subCategories">
+              <mat-checkbox
+                [(ngModel)]="subCategory.selected"
+                (change)="onCategoryChange(subCategory)"
+              >
+                {{ subCategory.name }}
+              </mat-checkbox>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </aside>
+  
+      <section class="content">
+       
+        <div class="results-header">
+          <span class="foundResults">{{filteredProducts.length}} results found</span>
+          <button mat-raised-button class="sortBtn" color="primary" (click)="sortPanel.toggle()">
+            Sort
+          </button>
+        </div>
+  
+        <div class="product-list">
+          <div class="product" *ngFor="let product of filteredProducts">
+            <img [src]="product.image" alt="{{ product.name }}" style="width: 85%;"/>
+            <h4>{{ product.name }}</h4>
+            <p>{{ product.points }} Points</p>
+            <button mat-button *ngIf="product.outOfStock" disabled>
+              Out of stock
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+    <footer class="footer">
+        <div class="footer-content">
+          <div class="footer-left">
+            <img src="./../assets/image/logo1.png" alt="Company Logo" class="footer-logo" />
+            <p>&copy; 2024</p>
+          </div>
+          <div class="footer-center">
+            <p class="version">Version 2.2.2</p>
+          </div>
+          <div class="footer-right">
+            <p class="about">About</p>
+            <ul>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Terms of Use</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+      
+  </div>
+</mat-drawer-container>
+  <!-- <div class="results-header">
+    <button mat-raised-button color="primary" (click)="sortPanel.toggle()">Sort</button>
+  </div> -->
+  
+  <!-- Side Panel -->
+ 
+  
